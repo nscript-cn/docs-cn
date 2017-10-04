@@ -9,11 +9,11 @@ previous_url: /setup/ns-cli-setup/ns-setup-linux
 
 # NativeScript Advanced Setup: Linux
 
-# NativeScript高级设置：Linux
+# 安装和设置NativeScript：Linux
 
 This page contains a list of all system requirements needed to build and run NativeScript apps on Linux, as well as a guided walkthrough for getting these requirements in place.
 
-本页将给出在Linux平台构建运行NativeScript应用所需的全部系统要求，并引导读者完成设置。
+本页将介绍在Linux平台构建和运行NativeScript应用所需的全部系统要求，并引导读者完成安装和设置。
 
 * [System Requirements](#system-requirements)
 
@@ -21,11 +21,11 @@ This page contains a list of all system requirements needed to build and run Nat
 
 * [Advanced Setup Steps](#advanced-setup-steps)
 
-  [高级设置步骤](#advanced-setup-steps)
+  [详细安装和设置步骤](#advanced-setup-steps)
 
 > **NOTE**: On Linux systems you can only use the NativeScript CLI to develop Android apps. This is because the NativeScript CLI uses Xcode to build iOS apps, which is only available on the macOS operating system. If you’re interested in building iOS apps on Linux, you may want to try out the public preview of [NativeScript Sidekick](https://www.nativescript.org/nativescript-sidekick). NativeScript Sidekick provides robust tooling for NativeScript apps, including a service that performs iOS and Android builds in the cloud, removing the need to complete these system requirements, and allowing you to build for iOS on Linux.
 
-> **备注**：在Linux系统下使用NativeScript CLI只能开发安卓应用。这是因为NativeScript CLI使用了Xcode构建iOS应用，而Xcode是macOS操作系统独有的。如希望在Linux平台开发iOS应用，您可尝试公开预览版的[NativeScript Sidekick](https://www.nativescript.org/nativescript-sidekick)。 NativeScript Sidekick针对NativeScript应用提供了强大的构建工具，包括一项在云端进行iOS和安卓应用开发的服务，您无需完成这些配置要求即可进行开发，且允许您在Linux平台进行iOS开发。
+> **备注**：在Linux系统下使用NativeScript CLI只能开发安卓应用。这是因为NativeScript CLI使用了Xcode来构建iOS应用，而Xcode是macOS操作系统独有的。如希望在Linux平台开发iOS应用，您可尝试公开预览版的[NativeScript Sidekick](https://www.nativescript.org/nativescript-sidekick)。 NativeScript Sidekick针对NativeScript应用提供了强大的构建工具，包括一项在云端构建iOS和安卓应用的服务，在无需满足这些系统要求的情况下，允许您在Linux平台进行iOS开发。
 
 ## System Requirements
 
@@ -51,6 +51,8 @@ This page contains a list of all system requirements needed to build and run Nat
 
 * Android Support Repository
 
+  Android Support Repository
+
 * (Optional) Google Repository
 
   （可选项）Google Repository
@@ -68,7 +70,7 @@ You must also have the following two environment variables setup for Android dev
 
 ## Advanced Setup Steps
 
-## 高级设置步骤
+## 详细安装和设置步骤
 
 Complete the following steps to set up NativeScript on your Linux development machine:
 
@@ -145,13 +147,14 @@ Complete the following steps to set up NativeScript on your Linux development ma
 
         <pre><code class="language-terminal">export ANDROID_HOME=Path to Android installation directory
         </code></pre>
+
         For example: ANDROID_HOME=/android/sdk
 
         例如：ANDROID_HOME=/android/sdk
 
         <blockquote><b>NOTE</b>: This is the directory that contains the <code>tools</code> and <code>platform-tools</code> directories.</blockquote>
 
-        <blockquote><b>备注</b>：这里所使用的路径下应包含<code>tools</code>和<code>platform-tools</code>路径。</blockquote>        
+        <blockquote><b>备注</b>：该路径应包含<code>tools</code>和<code>platform-tools</code>路径。</blockquote>        
 
 1. Install all packages for the Android SDK Platform 25, Android SDK Build-Tools 25.0.2 or later, Android Support Repository, Google Repository and any other SDKs that you may need. You can alternatively use the following command, which will install all required packages.
 
@@ -188,12 +191,11 @@ Complete the following steps to set up NativeScript on your Linux development ma
 
 ## What’s Next
 
-## 接下来
+## 下一步
 
 * [Return to the JavaScript tutorial](http://docs.nativescript.org/tutorial/chapter-1#11-install-nativescript-and-configure-your-environment)
 
   [返回JavaScript版教程](http://docs.nativescript.org/tutorial/chapter-1#11-install-nativescript-and-configure-your-environment)  
-
 * [Return to the TypeScript & Angular tutorial](http://docs.nativescript.org/angular/tutorial/ng-chapter-1#11-install-nativescript-and-configure-your-environment)
 
   [返回TypeScript & Angular版教程](http://docs.nativescript.org/angular/tutorial/ng-chapter-1#11-install-nativescript-and-configure-your-environment)
