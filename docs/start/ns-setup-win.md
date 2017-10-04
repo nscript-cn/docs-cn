@@ -9,11 +9,11 @@ previous_url: /setup/ns-cli-setup/ns-setup-win
 
 # NativeScript Advanced Setup: Windows
 
-# NativeScript高级设置：Windows
+# 安装和设置NativeScript：Windows
 
 This page contains a list of all system requirements needed to build and run NativeScript apps on Windows, as well as a guided walkthrough for getting these requirements in place.
 
-本页将给出在Windows平台构建运行NativeScript应用所需的全部系统要求，并引导读者完成设置。
+本页将介绍在Windows平台构建和运行NativeScript应用所需的全部系统要求，并引导读者完成安装和设置。
 
 * [System Requirements](#system-requirements)
   
@@ -21,11 +21,11 @@ This page contains a list of all system requirements needed to build and run Nat
 
 * [Advanced Setup Steps](#advanced-setup-steps)
   
-  [高级设置步骤](#advanced-setup-steps)
+  [安装步骤](#advanced-setup-steps)
 
 > **NOTE**: On Windows systems you can only use the NativeScript CLI to develop Android apps. This is because the NativeScript CLI uses Xcode to build iOS apps, which is only available on the macOS operating system. If you’re interested in building iOS apps on Windows, you may want to try out the public preview of [NativeScript Sidekick](https://www.nativescript.org/nativescript-sidekick). NativeScript Sidekick provides robust tooling for NativeScript apps, including a service that performs iOS and Android builds in the cloud, removing the need to complete these system requirements, and allowing you to build for iOS on Windows.
 
-> **备注**：在Windows系统下使用NativeScript CLI只能开发安卓应用。这是因为NativeScript CLI使用了Xcode构建iOS应用，而Xcode是macOS操作系统独有的。如希望在Windows平台开发iOS应用，您可尝试公开预览版的[NativeScript Sidekick](https://www.nativescript.org/nativescript-sidekick)。 NativeScript Sidekick针对NativeScript应用提供了强大的构建工具，包括一项在云端进行iOS和安卓应用开发的服务，您无需完成这些配置要求即可进行开发，且允许您在Windows平台进行iOS开发。
+> **备注**：在Windows系统下，只能使用NativeScript CLI开发安卓应用。这是因为NativeScript CLI使用了Xcode来构建iOS应用，而Xcode是macOS操作系统独有的。如果希望在Windows平台开发iOS应用，您可尝试公开预览版的[NativeScript Sidekick](https://www.nativescript.org/nativescript-sidekick)。 NativeScript Sidekick针对NativeScript应用提供了强大的构建工具，包括一项在云端进行iOS和安卓应用构建的服务，在无需满足这些系统要求的情况下进行开发，且允许您在Windows平台进行iOS开发。
 
 ## System Requirements
 
@@ -33,7 +33,7 @@ This page contains a list of all system requirements needed to build and run Nat
 
 * Windows 7 Service Pack 1 or later
 
-  Windows 7 Service Pack 1或更高
+  Windows 7 Service Pack 1或更新
 
 * The latest stable official release of Node.js (LTS) [6.x](https://nodejs.org/dist/latest-v6.x/)
 
@@ -52,6 +52,8 @@ This page contains a list of all system requirements needed to build and run Nat
   Android SDK 22或更新的稳定正式版本
 
 * Android Support Repository
+
+  Android Support Repository
 
 * (Optional) Google Repository
 
@@ -74,12 +76,12 @@ You must also have the following two environment variables setup for Android dev
 
 ## Advanced Setup Steps
 
-## 高级设置步骤
+## 详细安装步骤
 
 
 Complete the following steps to set up NativeScript on your Windows development machine:
 
-跟随下列步骤，在您的Windows开发机上完成NativeScript的设置：
+跟随下列步骤，在您的Windows开发机上完成NativeScript的安装设置：
 
 1. Install [Chocolatey](https://chocolatey.org) to simplify the installation and configuration of the requirements.
 
@@ -91,7 +93,7 @@ Complete the following steps to set up NativeScript on your Windows development 
 
     - Copy and paste the following script in the command prompt.
     
-      将以下脚本复制黏贴到命令窗口中。
+      将以下脚本复制粘贴到命令窗口中。
 
         <pre class="add-copy-button"><code class="language-terminal">@powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
         </code></pre>
@@ -176,14 +178,14 @@ Complete the following steps to set up NativeScript on your Windows development 
 
 8. To check if your system is configured properly, run the following command.
    
-   运行以下命令，检查系统系统是否已经正确配置。
+   运行以下命令，检查系统是否已经正确配置。
 
     <pre class="add-copy-button"><code class="language-terminal">tns doctor
     </code></pre>
 
 ## What’s Next
 
-## 接下来
+## 下一步
 
 * [Return to the JavaScript tutorial](http://docs.nativescript.org/tutorial/chapter-1#11-install-nativescript-and-configure-your-environment)
   
