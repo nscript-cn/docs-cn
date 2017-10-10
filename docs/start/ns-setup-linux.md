@@ -25,7 +25,7 @@ This page contains a list of all system requirements needed to build and run Nat
 
 > **NOTE**: On Linux systems you can only use the NativeScript CLI to develop Android apps. This is because the NativeScript CLI uses Xcode to build iOS apps, which is only available on the macOS operating system. If you’re interested in building iOS apps on Linux, you may want to try out the public preview of [NativeScript Sidekick](https://www.nativescript.org/nativescript-sidekick). NativeScript Sidekick provides robust tooling for NativeScript apps, including a service that performs iOS and Android builds in the cloud, removing the need to complete these system requirements, and allowing you to build for iOS on Linux.
 
-> **备注**：在Linux系统下使用NativeScript CLI只能开发安卓应用。这是因为NativeScript CLI使用了Xcode来构建iOS应用，而Xcode是macOS操作系统独有的。如希望在Linux平台开发iOS应用，您可尝试公开预览版的[NativeScript Sidekick](https://www.nativescript.org/nativescript-sidekick)。 NativeScript Sidekick针对NativeScript应用提供了强大的构建工具，包括一项在云端构建iOS和安卓应用的服务，在无需满足这些系统要求的情况下，允许您在Linux平台进行iOS开发。
+> **注意**：在Linux系统下使用NativeScript CLI只能开发安卓应用。这是因为NativeScript CLI使用了Xcode来构建iOS应用，而Xcode是macOS操作系统独有的。如希望在Linux平台开发iOS应用，您可尝试公开预览版的[NativeScript Sidekick](https://www.nativescript.org/nativescript-sidekick)。 NativeScript Sidekick针对NativeScript应用提供了强大的构建工具，包括一项在云端构建iOS和安卓应用的服务，在无需满足这些系统要求的情况下，允许您在Linux平台进行iOS开发。
 
 ## System Requirements
 
