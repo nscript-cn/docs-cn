@@ -6,7 +6,6 @@ slug: camera
 previous_url: /camera
 ---
 
-hello test:Wq
 # Camera
 
 # 相机
@@ -17,7 +16,7 @@ hello test:Wq
 
 Almost every mobile application needs the option to capture, save and share images. The NativeScript camera plugin was designed for the first two parts of the job (taking a picture and optionally saving to device storage).
 
-几乎所有的移动端应用都可能需要使用相机来进行拍照，用以保存或分享图片的功能。NativeScript的相机模块现在能够实现前面两个功能，即拍照，并可以选择是否本地存储保存该图片。
+几乎所有的移动端应用都可能需要使用相机来进行拍照，用以保存或分享图片的功能。NativeScript的相机模块现在能够实现上述两个功能。
 
 ### Installation
 
