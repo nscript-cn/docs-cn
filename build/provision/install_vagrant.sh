@@ -6,12 +6,28 @@ nodejs() {
     curl https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
 
     . ~/.nvm/nvm.sh
-    nvm install v5.11.0
-    nvm alias default 5.11.0
+    nvm install v6.11.4
+    nvm alias default 6.11.4
 }
 
 gruntcli() {
     npm install -g grunt-cli
+}
+
+typedoc() {
+    npm install -g typedoc@"^0.5.10"
+}
+
+typescript() {
+    npm install -g typescript@"~2.3.4"
+}
+
+tslint() {
+    npm install -g tslint@"^5.4.2"
+}
+
+markdown-snippet-injector() {
+    npm install -g markdown-snippet-injector@"^0.2.0"
 }
 
 install_ruby() {
@@ -38,6 +54,10 @@ setSdkRemoteRepoDirVar() {
 if [ "${BASH_SOURCE[0]}" == "$0" ] ; then
     nodejs
     gruntcli
+    typedoc
+    typescript
+    tslint
+    markdown-snippet-injector
     install_ruby
     install_project_gems
     setNsRemoteRepoDirVar
