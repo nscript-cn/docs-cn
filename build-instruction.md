@@ -1,7 +1,8 @@
 
+
 ### 克隆必须的资源库：
 
-1. 克隆`NativeScript/docs`库 (e.g. under ..\work\NativeScript\docs)，切换到`kkotorov/allow-local-builds`分支
+1. 克隆`NativeScript/docs`库 (e.g. under ..\work\NativeScript\docs)，切换到`kkotorov/allow-local-builds`分支（我们需要将docs-cn库合并一下`NativeScript/Docs`的`kkotorov/allow-local-builds`分支，看看都有什么设置上的变化。合并后，即可替换成doc-cn 库。等有空了我合并一下，请暂时用官方这个做实验）
 1. 克隆`NativeScript/NativeScript`库(e.g. under ..\work\NativeScript\NativeScript)
 1. 克隆`NativeScript/nativescript-sdk-examples-ng`库(e.g. under ..\work\NativeScript\nativescript-sdk-examples-ng)
 1. 克隆`NativeScript/sidekick-docs`库(e.g. under ..\work\NativeScript\sidekick-docs)
