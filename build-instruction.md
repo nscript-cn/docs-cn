@@ -30,7 +30,7 @@
 
   下载和安装[Vagrant](https://www.vagrantup.com/)
 
-1. 在终端安装(Windows的话，使用Git bash)，进入文档所在目录的`build`子目录:
+1. 在终端安装(Windows的话，使用Git bash)，进入文档所在目录(docs)的`build`子目录:
 ```
 $ cd build
 and then
