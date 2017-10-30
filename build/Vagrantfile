@@ -38,6 +38,9 @@ Vagrant.configure(2) do |config|
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
   config.vm.synced_folder "../docs", "/vagrant/Content"
+  config.vm.synced_folder "../../NativeScript", "/vagrant/NativeScript"
+  config.vm.synced_folder "../../sidekick-docs", "/vagrant/sidekick-docs"
+  config.vm.synced_folder "../../nativescript-sdk-examples-ng", "/vagrant/nativescript-sdk-examples-ng"
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -68,7 +71,13 @@ Vagrant.configure(2) do |config|
   config.vm.provider :virtualbox do |vb|
     vb.customize ["modifyvm", :id, "--memory", "4096"]
   end
+  config.vm.provider "virtualbox" do |v|
+    v.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-root", "1"]
+  end
 
+  config.vm.provider "virtualbox" do |vb|
+    vb.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/vagrant", "1"]
+  end
   config.vm.provision "shell", path: "provision/install.sh"
   config.vm.provision "shell", path: "provision/install_vagrant.sh", privileged:false
 end

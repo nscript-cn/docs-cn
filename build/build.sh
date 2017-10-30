@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 set -ex
 
 ENV="${ENV:-stable}"
@@ -10,7 +10,6 @@ rm -rf $TARGET_DIR
 mkdir -p $TARGET_DIR
 
 get_dependencies
-extract_prebuild_dependencies
 
 fetchExternals=${FETCH_EXTERNALS:=}
 ./update-changelog.sh $fetchExternals
@@ -20,7 +19,7 @@ fetchExternals=${FETCH_EXTERNALS:=}
 ./build-jekyll.sh "nativescript"
 ./build-jekyll.sh "angular"
 
-extract_postbuild_dependencies
+get_postbuild_dependencies
 
 (cd $TARGET_DIR && \
     tar -czvf "../site_${PACKAGE_VERSION}.tar.gz" ./ \

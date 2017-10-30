@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 get_artifacts() {
     BUILD_NAME="$1"
@@ -21,23 +21,28 @@ get_dependencies() {
     rm -rf *.tar.gz
     rm -rf _dependencies
     mkdir -p _dependencies
-    (cd _dependencies &&
-        get_artifacts "sdk-examples-docs-$ENV" 1 && \
-        get_artifacts "nativescript-angular-docs-$ENV" 1 && \
-        get_artifacts "modules-docs-$ENV" {1..3} && \
-        get_artifacts "sidekick-docs-$ENV" 1)
+       #Build NS Core modules docs
+    #Copy code snippets and cookbook content
+    (cd NativeScript && \
+        ./build-docs.sh)
+    cp -R ./NativeScript/bin/dist/snippets _dependencies/snippets/
+    cp -R ./NativeScript/bin/dist/cookbook _dependencies/cookbook/
+
+    #Build NS SDK examples docs
+    #Copy the code content
+    (cd nativescript-sdk-examples-ng && \
+        ./build-docs.sh)
+    cp -R ./nativescript-sdk-examples-ng/dist/code-samples _dependencies/code-samples/
+
+    #Build NS Sidekick docs
+    (cd sidekick-docs &&
+        jekyll build)
 }
 
-extract_prebuild_dependencies() {
-    (cd Content && \
-         tar zxvf ../_dependencies/nativescript-snippets*.tar.gz && \
-         tar zxvf ../_dependencies/nativescript-angular-snippets*.tar.gz && \
-         tar zxvf ../_dependencies/nativescript-cookbook*.tar.gz && \
-         tar zxvf ../_dependencies/sdk-code-samples*.tar.gz)
-}
+get_postbuild_dependencies() {
+    #Copy NS Core modules API reference
+    cp -R ./NativeScript/bin/dist/api-reference dist/api-reference/
 
-extract_postbuild_dependencies() {
-    (cd dist && \
-         tar zxvf ../_dependencies/nativescript-api-reference*.tar.gz && \
-         tar zxvf ../_dependencies/sidekick-docs*.tar.gz)
+    #Copy NS Sidekick docs content
+    cp -R ./sidekick-docs/sidekick dist/sidekick/
 }
