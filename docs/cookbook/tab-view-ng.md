@@ -56,11 +56,11 @@ export class TabViewTest {
 * tabItem:  The TabView directive uses a JSON object to transfer properties to the native object. Actually, `TabViewItem` is a pretty simple object with just `title`, `iconSource` and `view` properties. Since `title` and `iconSource` are usually represented as text, TabView directive uses a small JSON object (`{title: 'Profile', iconSource: '~/icon.png'}`) to define these properties easily in HTML. View, however, is not so simple, therefore as TabViewItem. View TabView directive uses the tag where `tabItem` attribute is set.
 <Comment: The text in the previous sentence, TabViewItem. View TabView is incorrect, but any changes I make to it may change the meaning. The commas I added are correct, so please keep those.>
 
-* tabItem: TabView指令用JSON对象把属性传到原生对象，其实`TabViewItem`就是由`title`, `iconSource` 和 `view`属性组成的对象，因为 `title` 和 `iconSource`常常是字符串，所以在HTML模版里用一个JSON对象（`{title: 'Profile', iconSource: '~/icon.png'}`）定义它们，但是 TabViewItem的view，即`view`就比较复杂了，TabView指令把`tabItem`属性所在的标签作为TabView的View。
+* tabItem: TabView指令用JSON对象把属性传到原生对象，其实`TabViewItem`就是由`title`, `iconSource` 和 `view`属性组成的对象，因为 `title` 和 `iconSource`常常是字符串，所以在HTML模版里用JSON对象（`{title: 'Profile', iconSource: '~/icon.png'}`）定义它们，但是 TabViewItem的view，即`view`就比较复杂了，TabView指令把`tabItem`属性所在的标签作为TabView的View。(注：上例中是StackLayout)
 
 This is a typical usage of the TabView directive; however, if further customization is required, there are a few options available.
 
-上面是TabView的典型用法，如果有自定义的需求， 那么也有几个可配置的选项供使用。
+上面是TabView的基本用法，TabView还提供了几项自定义的参数，可以用于有自定义的需求场景。
 
 ### Customizing Tab View
 
@@ -68,7 +68,8 @@ This is a typical usage of the TabView directive; however, if further customizat
 
 The most common customization of TabView is customizing the background color of the selected tab item to use something other than the first tab item for start up. <Comment: Please review my changes to the previous sentence to verify I did not create a technical error.> The following example shows how to achieve that with a few modifications to the previous example.
 
-最常用的需求就是默认选中某一项，并改变选中项的背景颜色，这个例子在上一个的基础上加入了很少量的更改实现了需求。
+最常用的需求就是在页面初始化后，自定义选中项的背景颜色。 下面的例子稍微更改上个实现了这个目的。
+
 ```XML
 // tab-view-test.html
 <TabView selectedIndex="1" selectedColor="#FF0000">
@@ -90,15 +91,15 @@ The most common customization of TabView is customizing the background color of 
 
 The result is a TabView that selects the second tab at start up and uses the color red for the selected tab.
 
-上例中一开始默认选中了第二项，并把背景色设为红色
+上例中页面初始化后默认选中了第二项，并把选中项背景色设为红色。
 
 ### Binding (Two-way) TabView selectedIndex
 
-### TabView selectedIndex 双向绑定
+### 绑定TabView的selectedIndex （双向绑定）
 
 You can use the NativeScript-Angular TabView `selectedIndex` property in two-way binding scenarios. Using this kind of binding is relatively simple. Just use the standard `ngModel` syntax to a data model property (for the sake of example, the TabViewTest class is used as binding context) and set the data model property `tabSelectedIndex` to the desired value. <Comment: Please review my changes to the previous sentence to verify I did not create a technical error. I think there is a word missing in the phrase, "syntax to a data model property".>
 
-可以利用NativeScript-Angular TabView `selectedIndex`属性实现数据双向绑定，使用方法相对比较简单，只要利用标准的`ngModel`指令绑定一个模型属性即可（在例子中，TabViewTest类是绑定的上下文），例子中绑定了`tabSelectedIndex`
+可以在双向绑定场景中使用TabView“selectedIndex”属性。实现方法相对比较简单，只要利用标准的`ngModel`指令绑定一个模型属性即可（在下例中，把TabViewTest类当作绑定的上下文），例子中把数据模型属性“tabSelectedIndex”设置为所需的值
 
 ```XML
 // tab-view-test.html
