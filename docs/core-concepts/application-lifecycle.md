@@ -8,28 +8,58 @@ previous_url: /application-management,/core-concepts/application-management
 {% angular %}
 # NativeScript application architecture and lifecycle
 
+# NativeScript 应用架构和生命周期
+
 The main building blocks of NativeScript applications with Angular are:
 
+使用 Angular 开发的 NativeScript 应用主要有以下构建模块：
+
 * [Modules](#modules)
+
+  [模块](#modules)
+
 * [Components](#components)
+
+  [组件](#components)
 
 The `application` module lets you manage the life cycle of your NativeScript apps from starting the application to storing user-defined settings.
 
-* [Start Application](#start-application)
-* [Use Application Events](#use-application-events)
-* [Android Activity Events](#android-activity-events)
-* [iOS UIApplicationDelegate](#ios-uiapplicationdelegate)
-* [Persist and Restore Application Settings](#persist-and-restore-application-settings)
+`application` 模块可以让你管理 NativeScript 应用的生命周期，从启动程序到储存用户设置。
 
+* [Start Application](#start-application)
+
+  [启动应用](#start-application)
+
+* [Use Application Events](#use-application-events)
+
+  [使用应用事件](#use-application-events)
+
+* [Android Activity Events](#android-activity-events)
+
+  [安卓活动事件](#android-activity-events)
+
+* [iOS UIApplicationDelegate](#ios-uiapplicationdelegate)
+
+  [iOS UI程序委托](#ios-uiapplicationdelegate)
+
+* [Persist and Restore Application Settings](#persist-and-restore-application-settings)
+  
+  [持久化和还原应用设置](#persist-and-restore-application-settings)
 ## Modules 
 
+## 模块
+
 Angular applications are modular. A module is a file containing a block of code dedicated to a single purpose. It exports a value that can be used by other parts of the application. For example:
+
+Angular 应用是模块化的。一个模块致力于解决一个问题。它导出了一个可以被应用其它部分使用的值。比如：
 
 ``` TypeScript
 export class AppComponent {}
 ```
 
 The `export` statement is important as it makes the `AppComponent` accessible to other modules. The import clause is used to reference the `AppComponent` class from other modules:
+
+`export` 语句非常重要，因为它使 `AppComponent` 可以被其它模块访问。其它模块可以使用 `import` 语句引入 `AppComponent`  类：
 
 ``` TypeScript
 import { Component } from '@angular/core';
@@ -38,17 +68,40 @@ import { AppComponent } from './app.component';
 
 Some modules are libraries of other modules. Modules installed as npm packages (like `@angular/core` in the above example) should be referenced without a path prefix. When we import from one of our own files, we prefix the module name with the file path. In this example we specify a relative file path (./). That means the source module is in the same folder (./) as the module importing it. 
 
+
+一些模块是其它模块的库。模块可以作为 npm 的包安装（比如上面示例中的 `@angular/core`），这些模块被引入的时候不应该有路径前缀。当我们从自己的文件中引入模块时，我们会在模块名前加上文件路径前缀。在示例中，我们指定了一个相对路径（./）。他表示要引入的模块与当前模块在同一个文件夹内。
 ## Components
+
+## 组件
 
 Components are the fundamental building blocks of NativeScript applications built with Angular. Every NativeScript application contains a set of components that define every UI element, screen or route. The application has a root component that contains all other components. The following constitutes a component:
 
+在使用 Angular 开发 NativeScript 应用时，组件是应用构建模块的基础。 每一个 NativeScript 应用都包含一系列组件，这些组件定义了 UI 元素，屏幕页面或路由。应用有一个根组件包含了其它所有组件。一个组件有以下几个特点：
+
 * A component knows how to interact with its host element.
+
+  组件知道如何与宿主元素交流。
+
 * A component knows how to render itself.
+
+  组件知道如何渲染自己。
+
 * A component configures dependency injection.
+
+  组件可以配置依赖注入。
+
 * A component has a well-defined public API of input and output properties.
+
+  组件有定义良好的输入、输出属性的公共 API。
+
 * A component has well-defined lifecycle.
 
+  组件有定义良好的生命周期。
+
 ### Component example
+
+### 组件示例
+
 
 ``` TypeScript
 import { Component } from "@angular/core";
@@ -70,15 +123,24 @@ export class MainComponent {
 
 ## Component metadata
 
+## 组件的元数据
+
 The `@Component` decorator contains metadata describing how to create and present the component. Here are some of the configuration options:
 
+`@Component` 装饰器包含了描述如何创建和呈现组件的元数据。这里是一些可选的配置项：
+
 * **selector** - a CSS selector that tells Angular to create and insert an instance of this component where it finds the selector in parent component's template. For example:
+
+  **selector** - 一个 CSS 选择器，它告诉了 Angular 如何创建和插入这个组件的示例，你可以在父组件的模版中使用它，比如：
 
 ```HTML
 <main-component></main-component>
 ```
 
 * **template** - A visual tree that represents the component view. Here you can use all NativeScript UI elements and custom defined UI components.
+
+ **teamplate** - 表示组件视图的可视化树。在这里你可以使用所有的 NativeScript UI 元素 和自定义的 UI 组件。
+
 * **templateUrl** - The address of a file where the component template is located.
 * **styles** - CSS directives that define the component style.
 * **styleUrls** - An array containing URLs of CSS files that define the component style.
