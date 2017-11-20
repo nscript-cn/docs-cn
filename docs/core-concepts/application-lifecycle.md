@@ -142,27 +142,64 @@ The `@Component` decorator contains metadata describing how to create and presen
  **teamplate** - 表示组件视图的可视化树。在这里你可以使用所有的 NativeScript UI 元素 和自定义的 UI 组件。
 
 * **templateUrl** - The address of a file where the component template is located.
+
+  **templateUrl** - 组件模版文件的路径。
+
 * **styles** - CSS directives that define the component style.
+
+  **styles** - 定义组件样式的 CSS 指令。
+
 * **styleUrls** - An array containing URLs of CSS files that define the component style.
+
+  **styleUrls** - 一组样式文件的路径。
+
 * **animations** - The animations associated with this component.
+
+  **animations** - 组件的动画。
+
 * **providers** - an array of dependency injection providers for services that the component requires.
+
+  **供应商** - 一组依赖注入的提供商，为组件提供所需的服务。
 
 ## Component lifecycle
 
+## 组件生命周期
+
 The component lifecycle is controlled by the Angular application. It creates, updates and destroys components. Lifecycle hooks are used to handle different events from the component lifecycle. Each hook method starts with the **ng** prefix. The following are some the component lifecycle methods:
 
+Angular 应用控制组件的生命周期，比如组件的创建、更新和销毁。生命周期钩子被用来处理生命周期引发的不同事件。每个钩子方法的名称都有一个 **ng** 前缀。下面是部分组件生命周期方法：
+
 * **ngOnInit** - Called after all data-bound input methods are initialized.
+
+  **ngOnInit** - 在初始化所有数据绑定和输入属性之后调用。
+
 * **ngOnChanges** - Callled after a data-bound property has been changed.
+
+  **ngOnChanges** - 在某个绑定的属性被修改之后调用。
+
 * **ngDoCheck** - Detect and act upon changes that Angular can or won't detect on its own. Called every change detection run.
+
+  **ngDoCheck** - 检测，并在发生Angular无法或不愿意自己检测的变化时作出反应。在每个Angular变更检测周期中调用。
+
 * **ngOnDestroy** - Called just before Angular destroys the component.
+
+  **ngOnDestroy** - 仅在 Angular 销毁组件之前调用。
 
 For a full list, see the official [Angular Lifecyle Hooks docs](https://angular.io/docs/ts/latest/guide/lifecycle-hooks.html).
 
+关于完整列表，请参照官方 [Angular Lifecyle Hooks 文档](https://angular.io/docs/ts/latest/guide/lifecycle-hooks.html).
+
 ## Start application
+
+## 启动应用
 
 The starting point of an Angular application is the `nativeScriptBootstrap` method. It takes the root component as an argument:
 
+Angular 应用的入口是 `nativeScriptBootstrap`。 它将根组件作为一个参数：
+
 ### Example
+
+### 示例
 
 ``` TypeScript
 import { nativeScriptBootstrap } from "./nativescript-angular/application";
@@ -176,12 +213,18 @@ nativeScriptBootstrap(MainComponent).then((compRef) => {
 ```
 
 > **IMPORTANT:** You must call the `nativeScriptBootstrap` method **after** the module initialization. Any code after the `nativeScriptBootstrap` call will not be executed.
+
+> **重要提示：**必须在模块初始化**之后**再调用 `nativeScriptBootstrap` 方法。该方法调用之后的任何代码都不会被执行。
 {% endangular%} 
 
 {% nativescript %}
 # Application Management
 
+# 应用管理
+
 The `application` module lets you manage the life cycle of your NativeScript apps from starting the application to storing user-defined settings.
+
+`application` 模块让你可以管理 NativeScript 应用的生命周期，从启动应用到储存用户设置
 
 * [Start Application](#start-application)
 * [Use Application Events](#use-application-events)
