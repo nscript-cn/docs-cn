@@ -40,7 +40,7 @@ The `application` module lets you manage the life cycle of your NativeScript app
 
 * [iOS UIApplicationDelegate](#ios-uiapplicationdelegate)
 
-  [iOS UI程序委托](#ios-uiapplicationdelegate)
+  [iOS UI应用委托](#ios-uiapplicationdelegate)
 
 * [Persist and Restore Application Settings](#persist-and-restore-application-settings)
   
@@ -224,25 +224,49 @@ nativeScriptBootstrap(MainComponent).then((compRef) => {
 
 The `application` module lets you manage the life cycle of your NativeScript apps from starting the application to storing user-defined settings.
 
-`application` 模块让你可以管理 NativeScript 应用的生命周期，从启动应用到储存用户设置
+`application` 模块让你可以管理 NativeScript 应用的生命周期，比如启动应用和储存用户设置。
 
 * [Start Application](#start-application)
+
+  [启动应用](#start-application)
+
 * [Use Application Events](#use-application-events)
+
+  [使用应用事件](#use-application-events)
+
 * [Android Activity Events](#android-activity-events)
+
+  [Android 活动事件](#android-activity-events)
+
 * [iOS UIApplicationDelegate](#ios-uiapplicationdelegate)
+
+  [iOS UI应用委托](#ios-uiapplicationdelegate)
+
 * [Persist and Restore Application Settings](#persist-and-restore-application-settings)
+  
+  [持久化和还原应用设置](#persist-and-restore-application-settings)
 
 ## Start Application
 
+## 启动应用
+
 This method is required only for iOS applications. 
+
+此方法仅适用于iOS应用程序。
 
 > **IMPORTANT:** You must call the `start` method of the application module **after** the module initialization. Any code after the `start` call will not be executed.
 
+> **重要提示：** 必须在模块初始化**之后**再调用 `start` 方法。该方法调用之后的任何代码都不会被执行。
+
 ### Example
+
+### 示例
 
 ``` JavaScript
 /*
 iOS calls UIApplication and triggers the application main event loop.
+
+iOS 调用 UIApplication 然后触发应用的主事件循环。
 */
 
 var application = require("application");
@@ -251,6 +275,7 @@ application.start({ moduleName: "main-page" });
 ``` TypeScript
 /*
 iOS calls UIApplication and triggers the application main event loop.
+iOS 调用 UIApplication 然后触发应用的主事件循环。
 */
 
 import { start as applicationStart } from "application";
@@ -260,16 +285,39 @@ applicationStart({ moduleName: "main-page" });
 
 ## Use Application Events
 
+## 使用应用事件
+
 NativeScript applications have the following life cycle events.
 
+NativeScript 应用有以下生命周期事件。
+
 + `launch`: This event is raised when application launch.
+
+  `launch`：当应用启动时会触发此事件。
+
 + `suspend`: This event is raised when the application is suspended.
+
+  `suspend`：当应用暂停时会触发此事件。
+
 + `resume`: This event is raised when the application is resumed after it has been suspended.
+
+  `resume`：当应用暂停后恢复时会触发此事件。
+
 + `exit`: This event is raised when the application is about to exit.
+
+  `exit`：当应用将要退出时会触发此事件。
+
 + `lowMemory`: This event is raised when the memory on the target device is low.
+
+  `lowMemory`：当目标设备的内存偏低时会触发此事件。
+
 + `uncaughtError`: This event is raised when an uncaught application error is present.
 
+  `uncaughtError`：当应用出现未捕获的错误时会触发此事件。
+
 ### Example
+
+### 示例
 
 {% nativescript %}
 ``` JavaScript
@@ -278,9 +326,11 @@ var application = require("application");
 application.on(application.launchEvent, function (args) {
     if (args.android) {
         // For Android applications, args.android is an android.content.Intent class.
+        // 对 Android 应用，args.android 是一个 android.conten.Intent 的类。
         console.log("Launched Android application with the following intent: " + args.android + ".");
     } else if (args.ios !== undefined) {
         // For iOS applications, args.ios is NSDictionary (launchOptions).
+        // 对 iOS 应用，args.ios 是  NSDictionary（启动选项）。
         console.log("Launched iOS application with options: " + args.ios);
     }
 });
@@ -288,9 +338,11 @@ application.on(application.launchEvent, function (args) {
 application.on(application.suspendEvent, function (args) {
     if (args.android) {
         // For Android applications, args.android is an android activity class.
+        // 对 Andorid 应用，args.android 是一个 android 活动类。
         console.log("Activity: " + args.android);
     } else if (args.ios) {
         // For iOS applications, args.ios is UIApplication.
+        // 对 iOS 应用，args.ios 是 UIApplication。
         console.log("UIApplication: " + args.ios);
     }
 });
@@ -298,9 +350,11 @@ application.on(application.suspendEvent, function (args) {
 application.on(application.resumeEvent, function (args) {
     if (args.android) {
         // For Android applications, args.android is an android activity class.
+        // 对 Andorid 应用，args.android 是一个 android 活动类。
         console.log("Activity: " + args.android);
     } else if (args.ios) {
         // For iOS applications, args.ios is UIApplication.
+        // 对 iOS 应用，args.ios 是 UIApplication。
         console.log("UIApplication: " + args.ios);
     }
 });
@@ -308,9 +362,11 @@ application.on(application.resumeEvent, function (args) {
 application.on(application.exitEvent, function (args) {
     if (args.android) {
         // For Android applications, args.android is an android activity class.
+        // 对 Andorid 应用，args.android 是一个 android 活动类。
         console.log("Activity: " + args.android);
     } else if (args.ios) {
         // For iOS applications, args.ios is UIApplication.
+        // 对 iOS 应用，args.ios 是 UIApplication。
         console.log("UIApplication: " + args.ios);
     }
 });
@@ -318,9 +374,11 @@ application.on(application.exitEvent, function (args) {
 application.on(application.lowMemoryEvent, function (args) {
     if (args.android) {
         // For Android applications, args.android is an android activity class.
+        // 对 Andorid 应用，args.android 是一个 android 活动类。
         console.log("Activity: " + args.android);
     } else if (args.ios) {
         // For iOS applications, args.ios is UIApplication.
+        // 对 iOS 应用，args.ios 是 UIApplication。
         console.log("UIApplication: " + args.ios);
     }
 });
@@ -328,9 +386,11 @@ application.on(application.lowMemoryEvent, function (args) {
 application.on(application.uncaughtErrorEvent, function (args) {
     if (args.android) {
         // For Android applications, args.android is an NativeScriptError.
+        // 对 Andorid 应用，args.android 是一个 NativeScript 错误。
         console.log("NativeScriptError: " + args.android);
     } else if (args.ios) {
         // For iOS applications, args.ios is NativeScriptError.
+        // 对 iOS 应用，args.ios 是 NativeScript 错误。
         console.log("NativeScriptError: " + args.ios);
     }
 });
@@ -343,9 +403,11 @@ import { on as applicationOn, launchEvent, suspendEvent, resumeEvent, exitEvent,
 applicationOn(launchEvent, function (args: ApplicationEventData) {
     if (args.android) {
         // For Android applications, args.android is an android.content.Intent class.
+        // 对 Android 应用，args.android 是一个 android.conten.Intent 的类。
         console.log("Launched Android application with the following intent: " + args.android + ".");
     } else if (args.ios !== undefined) {
         // For iOS applications, args.ios is NSDictionary (launchOptions).
+        // 对 iOS 应用，args.ios 是 NSDictionary（启动选项）。
         console.log("Launched iOS application with options: " + args.ios);
     }
 });
@@ -353,9 +415,11 @@ applicationOn(launchEvent, function (args: ApplicationEventData) {
 applicationOn(suspendEvent, function (args: ApplicationEventData) {
     if (args.android) {
         // For Android applications, args.android is an android activity class.
+        // 对 Andorid 应用，args.android 是一个 android 活动类。
         console.log("Activity: " + args.android);
     } else if (args.ios) {
         // For iOS applications, args.ios is UIApplication.
+        // 对 iOS 应用，args.ios 是 UIApplication。
         console.log("UIApplication: " + args.ios);
     }
 });
@@ -363,9 +427,11 @@ applicationOn(suspendEvent, function (args: ApplicationEventData) {
 applicationOn(resumeEvent, function (args: ApplicationEventData) {
     if (args.android) {
         // For Android applications, args.android is an android activity class.
+        // 对 Andorid 应用，args.android 是一个 android 活动类。
         console.log("Activity: " + args.android);
     } else if (args.ios) {
         // For iOS applications, args.ios is UIApplication.
+        // 对 iOS 应用，args.ios 是 UIApplication。
         console.log("UIApplication: " + args.ios);
     }
 });
@@ -373,9 +439,11 @@ applicationOn(resumeEvent, function (args: ApplicationEventData) {
 applicationOn(exitEvent, function (args: ApplicationEventData) {
     if (args.android) {
         // For Android applications, args.android is an android activity class.
+        // 对 Andorid 应用，args.android 是一个 android 活动类。
         console.log("Activity: " + args.android);
     } else if (args.ios) {
         // For iOS applications, args.ios is UIApplication.
+        // 对 iOS 应用，args.ios 是 UIApplication。
         console.log("UIApplication: " + args.ios);
     }
 });
@@ -383,9 +451,11 @@ applicationOn(exitEvent, function (args: ApplicationEventData) {
 application.on(lowMemoryEvent, function (args: ApplicationEventData) {
     if (args.android) {
         // For Android applications, args.android is an android activity class.
+        // 对 Andorid 应用，args.android 是一个 android 活动类。
         console.log("Activity: " + args.android);
     } else if (args.ios) {
         // For iOS applications, args.ios is UIApplication.
+        // 对 Andorid 应用，args.android 是一个 android 活动类。
         console.log("UIApplication: " + args.ios);
     }
 });
@@ -393,9 +463,11 @@ application.on(lowMemoryEvent, function (args: ApplicationEventData) {
 application.on(uncaughtErrorEvent, function (args: ApplicationEventData) {
     if (args.android) {
         // For Android applications, args.android is an NativeScriptError.
+        // 对 Andorid 应用，args.android 是一个 NativeScript 错误。
         console.log("NativeScriptError: " + args.android);
     } else if (args.ios) {
         // For iOS applications, args.ios is NativeScriptError.
+        // 对 iOS 应用，args.ios 是 NativeScript 错误。
         console.log("NativeScriptError: " + args.ios);
     }
 });
@@ -403,19 +475,51 @@ applicationStart({ moduleName: "main-page" });
 ```
 ## Android Activity Events
 
+## Android 活动事件
+
 NativeScript applications have the following Android specific activity events:
 
+NativeScript 应用有以下 Android 特定的活动事件：
+
 + `activityCreated`: This event is raised when activity is created.
+
+  `activityCreated`：当活动创建时会触发此事件。
+
 + `activityDestroyed`: This event is raised when activity is destroyed.
+
+  `activityDestroyed`：当活动销毁时会触发此事件。
+
 + `activityStarted`: This event is raised when activity is started.
+
+  `activityStarted`：当活动开始时会触发此事件。
+
 + `activityPaused`: This event is raised when activity is paused.
+
+  `activityPaused`：当活动暂停时会触发此事件。
+
 + `activityResumed`: This event is raised when activity is resumed.
+
+  `activityResumed`：当活动被暂停后恢复时会触发此事件。
+
 + `activityStopped`: This event is raised when activity is stopped.
+
+  `activityStopped`：当活动被停止时会触发此事件。
+
 + `saveActivityState`: This event is raised to retrieve per-instance state from an activity before being killed so that the state can be restored.
+
+  `saveActivityState`：当活动被停止前可以调用此事件，检索活动每个实例的状态，以便状态可被恢复。
+
 + `activityResult`: This event is raised when an activity you launched exits, giving you the requestCode you started it with, the resultCode it returned, and any additional data from it.
+
+  `activityResult`：当你启动的活动退出时可以调用此事件，它将提供你启动活动使用的请求码，活动返回的结果码，和活动产生的所有额外数据。
+
 + `activityBackPressed`: This event is raised when the activity has detected the user's press of the back key.
 
+  `activityBackPressed`：当活动检测到用户按下返回键时会触发此事件。
+
 ### Example
+
+### 示例
 
 {% nativescript %}
 ``` JavaScript
@@ -458,6 +562,7 @@ if (application.android) {
     application.android.on(application.AndroidApplication.activityBackPressedEvent, function (args) {
         console.log("Event: " + args.eventName + ", Activity: " + args.activity);
         // Set args.cancel = true to cancel back navigation and do something custom.
+        // 设置 args.cancel 为 true 以取消后退，并进行一些自定义行为。
     });
 }
 
@@ -468,6 +573,7 @@ application.start();
 import { android, AndroidApplication, AndroidActivityBundleEventData } from "application";
 
 // Android activity events
+// Android 活动事件
 if (android) {
     android.on(AndroidApplication.activityCreatedEvent, function (args: AndroidActivityBundleEventData) {
         console.log("Event: " + args.eventName + ", Activity: " + args.activity + ", Bundle: " + args.bundle);
@@ -505,6 +611,7 @@ if (android) {
     android.on(AndroidApplication.activityBackPressedEvent, function (args: AndroidActivityBackPressedEventData) {
         console.log("Event: " + args.eventName + ", Activity: " + args.activity);
         // Set args.cancel = true to cancel back navigation and do something custom.
+        // 设置 args.cancel 为 true 以取消后退，并进行一些自定义行为。
     });
 }
 
@@ -513,9 +620,15 @@ application.start({ moduleName: "main-page" });
 
 ## iOS UIApplicationDelegate
 
+## iOS UI应用委托 
+
 Since NativeScript 1.3 you can specify custom UIApplicationDelegate for the iOS application:
 
+从 NativeScript 1.3 开始，你可以自定义 iOS 应用的UI应用委托。
+
 ### Example
+
+### 示例
 
 {% nativescript %}
 ``` JavaScript
@@ -560,17 +673,26 @@ applicationStart();
 
 ## Persist and Restore Application Settings
 
+## 持久化和还原应用设置
+
 To persist user-defined settings, you need to use the `application-settings` module. The `application-settings` module is a static singleton hash table that stores key-value pairs for the application. 
+
+为保存用户设置，你需要使用 `application-settings` 模块。这个模块是一个静态的单例哈希表，它为应用储存着键值对数据。
 
 The getter methods have two parameters: a key and an optional default value to return if the specified key does not exist.
 The setter methods have two required parameters: a key and value. 
 
+getter 方法有两个参数：一个键和当这个键不存在时返回的默认值（可选）。
+setter 方法有两个必需的参数：一个键和一个值。
 ### Example
+
+### 示例
 
 {% nativescript %}
 ``` JavaScript
 var applicationSettings = require("application-settings");
 // Event handler for Page "loaded" event attached in main-page.xml.
+// 在 main-page.xml 中添加的“加载”事件的句柄。
 function pageLoaded(args) {
     applicationSettings.setString("Name", "John Doe");
     console.log(applicationSettings.getString("Name")); // Prints "John Doe".
@@ -589,6 +711,7 @@ exports.pageLoaded = pageLoaded;
 import { EventData } from "data/observable";
 import * as applicationSettings from "application-settings";
 // Event handler for Page "loaded" event attached in main-page.xml.
+// 在 main-page.xml 中添加的“加载”事件的句柄。
 export function pageLoaded(args: EventData) {
     applicationSettings.setString("Name", "John Doe");
     console.log(applicationSettings.getString("Name"));// Prints "John Doe".
