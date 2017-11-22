@@ -24,7 +24,7 @@ The main building blocks of NativeScript applications with Angular are:
 
 The `application` module lets you manage the life cycle of your NativeScript apps from starting the application to storing user-defined settings.
 
-`application` 模块可以让你管理 NativeScript 应用的生命周期，从启动程序到储存用户设置。
+`application` 模块让你可以管理 NativeScript 应用的生命周期，从启动程序到储存用户设置。
 
 * [Start Application](#start-application)
 
@@ -139,7 +139,7 @@ The `@Component` decorator contains metadata describing how to create and presen
 
 * **template** - A visual tree that represents the component view. Here you can use all NativeScript UI elements and custom defined UI components.
 
- **teamplate** - 表示组件视图的可视化树。在这里你可以使用所有的 NativeScript UI 元素 和自定义的 UI 组件。
+  **teamplate** - 表示组件视图的可视化树。在这里你可以使用所有的 NativeScript UI 元素和自定义的 UI 组件。
 
 * **templateUrl** - The address of a file where the component template is located.
 
@@ -159,7 +159,7 @@ The `@Component` decorator contains metadata describing how to create and presen
 
 * **providers** - an array of dependency injection providers for services that the component requires.
 
-  **供应商** - 一组依赖注入的提供商，为组件提供所需的服务。
+  **providers** - 一组依赖注入的提供商，为组件提供所需的服务。
 
 ## Component lifecycle
 
@@ -179,7 +179,7 @@ Angular 应用控制组件的生命周期，比如组件的创建、更新和销
 
 * **ngDoCheck** - Detect and act upon changes that Angular can or won't detect on its own. Called every change detection run.
 
-  **ngDoCheck** - 检测，并在发生Angular无法或不愿意自己检测的变化时作出反应。在每个Angular变更检测周期中调用。
+  **ngDoCheck** - 检测，并在发生 Angular 无法或不愿意自己检测的变化时作出反应。在每个Angular变更检测周期中调用。
 
 * **ngOnDestroy** - Called just before Angular destroys the component.
 
@@ -214,7 +214,8 @@ nativeScriptBootstrap(MainComponent).then((compRef) => {
 
 > **IMPORTANT:** You must call the `nativeScriptBootstrap` method **after** the module initialization. Any code after the `nativeScriptBootstrap` call will not be executed.
 
-> **重要提示：**必须在模块初始化**之后**再调用 `nativeScriptBootstrap` 方法。该方法调用之后的任何代码都不会被执行。
+> **重要提示：**必须在模块初始化**之后**再调用 `nativeScriptBootstrap` 方法。在该方法调用之后的任何代码都不会被执行。
+
 {% endangular%} 
 
 {% nativescript %}
@@ -224,7 +225,7 @@ nativeScriptBootstrap(MainComponent).then((compRef) => {
 
 The `application` module lets you manage the life cycle of your NativeScript apps from starting the application to storing user-defined settings.
 
-`application` 模块让你可以管理 NativeScript 应用的生命周期，比如启动应用和储存用户设置。
+`application` 模块让你可以管理 NativeScript 应用的生命周期，从启动程序到储存用户设置。
 
 * [Start Application](#start-application)
 
@@ -252,11 +253,11 @@ The `application` module lets you manage the life cycle of your NativeScript app
 
 This method is required only for iOS applications. 
 
-此方法仅适用于iOS应用程序。
+此方法仅适用于 iOS 应用程序。
 
 > **IMPORTANT:** You must call the `start` method of the application module **after** the module initialization. Any code after the `start` call will not be executed.
 
-> **重要提示：** 必须在模块初始化**之后**再调用 `start` 方法。该方法调用之后的任何代码都不会被执行。
+> **重要提示：** 必须在模块初始化**之后**再调用 `start` 方法。在该方法调用之后的任何代码都不会被执行。
 
 ### Example
 
@@ -265,7 +266,6 @@ This method is required only for iOS applications.
 ``` JavaScript
 /*
 iOS calls UIApplication and triggers the application main event loop.
-
 iOS 调用 UIApplication 然后触发应用的主事件循环。
 */
 
