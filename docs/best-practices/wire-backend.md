@@ -8,7 +8,7 @@ slug: wire-backend
 
 # Connecting to a Backend Service
 
-# 与后端服务连接
+# 连接后端服务
 
 Most mobile applications need to communicate with data in one form or another. Depending on the exact scenario, this may be local storage but if you need to share data or sync it across devices, you need to use some kind of backend.
 
@@ -23,7 +23,7 @@ This article goes through some of the popular ways to connect your NativeScript 
 
 [Kinvey](https://www.kinvey.com/) makes it easy for developers to set up, use and operate a cloud backend for their mobile apps. They don't have to worry about connecting to various cloud services, setting up servers for their backend, or maintaining and scaling them.
 
-[Kinvey](https://www.kinvey.com/) 让开发者更简单快捷的设置、使用和操作一个云端后端服务。开发者们不需要担心如何连接到很多云端服务，也不用操心如何为后端服务架设服务器以及维护它们。
+[Kinvey](https://www.kinvey.com/) 能让开发者更简单快捷的设置、使用和操作一个云端后端服务。开发者们不需要担心如何连接到很多云端服务，也不用操心如何为后端服务架设服务器以及维护它们。
 
 __[Get Started with the Kinvey NativeScript SDK](https://devcenter.kinvey.com/nativescript/guides/getting-started) or take a look at the [SDK repository](https://github.com/Kinvey/nativescript-sdk).__
 
