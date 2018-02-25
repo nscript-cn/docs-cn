@@ -1,6 +1,6 @@
 ---
-title: Modules
-description: You can access the native device and platform capabilities of your target platform with the help of the NativeScript modules.
+title: Modules 模块
+description: You can access the native device and platform capabilities of your target platform with the help of the NativeScript modules. 借助 NativeScript 的模块，你可以访问目标平台的本地设备和平台功能。
 position: 50
 slug: modules
 previous_url: /modules
@@ -8,34 +8,59 @@ previous_url: /modules
 
 # Modules
 
+# 模块
+
 To let you access the native device and platform capabilities of your target platform, NativeScript uses a modular design pattern. All device, platform or user interface functionalities reside in separate modules. To access the functionality provided by a module, you need to **require** the module.
 
+NativeScript 使用了模块化的设计方式，从而使你能够访问目标平台的本地设备和平台功能。所有的设备、平台或用户界面的功能都在单独的模块中。你需要 **require** 特定的模块来访问它提供的功能。
+
 In your project, the files for each module reside in a dedicated subdirectory in the `tns_modules` directory. Each default module comes along with a `package.json` file that declares how the module should be called within your call and which file contains its respective code.
+
+在你的项目中，不同的模块的文件应当位于 `tns_modules` 目录下的不同子目录里。每个默认模块都拥有一个声明了该模块应如何调用以及哪个文件包含了对应代码的 `package.json` 文件。
 
 ```JSON
 { "name" : "button",
   "main" : "button.js" }
-``` 
+```
 
 * [Core modules](#core-modules)
+* [核心模块](#core-modules)
 * [Device functionality modules](#device-functionality-modules)
+* [设备功能模块](#device-functionality-modules)
 * [Data modules](#data-modules)
+* [数据模块](#data-modules)
 * [User interface modules](#user-interface-modules)
+* [用户界面模块](#user-interface-modules)
 	* [Layouts](#layouts)
+	* [布局](#layouts)
 	* [Widgets](#widgets)
+	* [窗口部件](#widgets)
 * [WHATWG polyfills](#whatwg-polyfills)
-* 
+* [WHATWG 软垫片（polyfills）](#whatwg-polyfills)
+*
+
 ### Core modules
 
+### 核心模块
+
 + [application]({%ns_cookbook application%}): Provides the application abstraction with all related methods.
++ [application]({%ns_cookbook application%}): 提供程序的摘要及相关的方法。
 + [console]({%ns_cookbook console%}): Lets you print messages to the device console.
++ [console]({%ns_cookbook console%}): 使你能够将消息输出到设备的控制台。
 + [application-settings]({%ns_cookbook application-settings%}): Lets you save and restore any information related to your application.
++ [application-settings]({%ns_cookbook application-settings%}): 保存、加载与应用程序相关的一切信息。
 + [http]({%ns_cookbook http%}): Lets you send web requests and receive the responses.
++ [http]({%ns_cookbook http%}): 发出网络请求并接收回复。
 + [image-source]({%ns_cookbook image-source%}): Provides the `ImageSource` class which encapsulates the common abstraction behind a platform-specific object that is used as a source for images (typically a Bitmap).
++ [image-source]({%ns_cookbook image-source%}): 提供 `ImageSource` 类，封装了常见的特定于平台的用作图像源的对象（通常是位图）的抽象。
 + [timer]({%ns_cookbook timer%}): Lets you create, start, stop and react to timers.
++ [timer]({%ns_cookbook timer%}): 允许创建、开始和停止计时器，并和计时器进行交互。
 + [trace]({%ns_cookbook trace%}): Lets you trace and print specific information based on categories.
++ [trace]({%ns_cookbook trace%}): 允许跟踪并打印基于类别的特定信息。
 + [ui/image-cache]({%ns_cookbook ui/image-cache%}): Provides the `Cache` class which handles image download requests and caches the already downloaded images.
++ [ui/image-cache]({%ns_cookbook ui/image-cache%}): 提供处理图像下载请求并缓存已下载图片的 `Cache` 类。
 + [connectivity]({%ns_cookbook connectivity%}): Lets you check the type of Internet connection and monitor its state changes.
++ [connectivity]({%ns_cookbook connectivity%}): 允许检测网络连接的状态并监测其状态的变化.
 
 ### Device functionality modules
 
