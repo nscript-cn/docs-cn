@@ -35,7 +35,7 @@ Don’t worry though—with a few optimizations, NativeScript apps can startup f
 
 File I/O is one of the biggest reasons that NativeScript apps can start up slowly. Every time you do a `require()` call in your app, the NativeScript modules must retrieve a file from your app’s file system, and run that file through the [JavaScript virtual machine that NativeScript uses](http://developer.telerik.com/featured/nativescript-works/). That cost adds up, especially in larger apps that might require hundreds or thousands of modules to render their first page.
 
-NativeScript应用启动速度慢的主要原因之一是文件读写。应用中每一次调用`require()`函数，NativeScript模块就会检索当前应用文件系统，查找目标文件，并在[NativeScript的JavaScript虚拟机](http://developer.telerik.com/featured/nativescript-works/)中使用。这些开销是会累加的。在一些较大的应用的在首页中可能需要渲染大量的模块，这将极大的减缓启动速度。
+NativeScript应用启动速度慢的主要原因之一是文件读写。应用中每一次调用`require()`函数，NativeScript模块就会检索当前应用文件系统，查找目标文件，并在[NativeScript的JavaScript虚拟机](http://developer.telerik.com/featured/nativescript-works/)中运行。尤其在一些较大的应用的在首页中可能需要渲染大量的模块，这些开销是会累加的，将会极大的减缓启动速度。
 
 The best way to reduce this file I/O is to place all of your JavaScript code in a small number of files. For NativeScript apps the best way to do this is [enabling the NativeScript webpack plugin](https://docs.nativescript.org/best-practices/bundling-with-webpack), which gives you the ability to use the popular [webpack](https://webpack.github.io/) build tool to optimize your NativeScript apps.
 
@@ -51,7 +51,7 @@ npm install --save-dev nativescript-dev-webpack
 
 And then run `npm install` to install its dependencies.
 
-然后安装依赖。
+然后运行 npm install 命令，安装依赖。
 
 ```
 npm install
@@ -63,7 +63,7 @@ When the `install` command finishes, you’ll have a series of scripts you can u
 
 > **NOTE**: Webpack is not enabled by default as it slows down NativeScript’s build processes. Although you’re welcome to use webpack for all your builds, we recommend using webpack only for benchmarking and release builds.
 
-> **注意**： 由于Webpack会减缓NativeScript应用的打包过程，所以默认状态下Webpack是没有启用的。虽然在各种应用打包情况下使用webpack都是没有问题的，不过仍然建议在对标分析或者发布版本的时候启用webpack来帮助优化打包。
+> **注意**： 由于webpack会减缓NativeScript应用的打包过程，所以默认状态下Webpack是没有启用的。虽然在各种应用打包情况下使用webpack都是没有问题的，不过仍然建议在对标分析或者发布版本的时候启用webpack来帮助优化打包。
 
 You can go ahead and run one of the following two commands to see how much faster your apps run with the default webpack configuration in place.
 
@@ -89,7 +89,7 @@ To give you a sense of how big of a difference webpack makes, let’s look at so
 
 下面一组关于[NativeScript Groceries](https://github.com/nativescript/sample-Groceries)示例引用的对比图片刚好能够展示出webpack的优化效果。
 
-下面两张图是在没有__启用__webpack时，Groceries的启动情况。
+下面两张图是在 __没有启用__ webpack时，Groceries的启动情况。
 
 <div style="display: flex; max-width: 100%;">
   <img src="../img/best-practices/ios-start-up-0.gif" style="height: 450px;">
@@ -116,7 +116,7 @@ And here’s the same app with webpack turned on.
 
 Webpack speeds up your app by placing most of your application code in two files—`vendor.js` and `bundle.js`. If you’re curious, you can find those files in your `platforms/ios/NAME_OF_YOUR_APP_/app` folder for iOS, and in your `platforms/android/src/main/assets/app` folder for Android.
 
-Webpack通过把应用的大多数代码放到`vendor.js`和`bunlde.js`中来加快应用的运行速度。iOS平台，这些文件将会在`platforms/ios/NAME_OF_YOUR_APP_/app`文件夹中，而Android平台，则在`platforms/android/src/main/assets/app`文件夹中。
+Webpack通过把应用的大多数代码放到`vendor.js`和`bunlde.js`中来加快应用的运行速度。对于iOS平台，这些文件将会在`platforms/ios/NAME_OF_YOUR_APP_/app`文件夹中，而在Android平台上，则在`platforms/android/src/main/assets/app`文件夹中。
 
 Your app should be a lot faster now that you’re using a lot fewer files, but we’re just getting started. Even though your app only uses two JavaScript files, there’s still a cost for NativeScript to parse all of the JavaScript code that lives in those files.
 
